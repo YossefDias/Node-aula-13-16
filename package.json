@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node src/server.ts",
-    "dev": "ts-node-dev --transpile-only src/server.ts",
+    "dev": "ts-node-dev --transpile-only -r tsconfig-paths/register src/server.ts",
     "build": "tsc -p ."
   },
   "dependencies": {
