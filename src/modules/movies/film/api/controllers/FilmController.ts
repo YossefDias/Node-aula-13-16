@@ -5,6 +5,8 @@ import { UpdateFilmDTO } from "../../dtos/UpdateFilmDTO";
 
 import { IFilmService } from "../../business/services/IFilmService";
 import { IFilmController } from "./IFilmController";
+import { ParamsDictionary } from "express-serve-static-core";
+import { ParsedQs } from "qs";
 
 export class FilmController implements IFilmController {
     private readonly filmService: IFilmService;
@@ -12,6 +14,12 @@ export class FilmController implements IFilmController {
     constructor(filmService: IFilmService) {
         this.filmService = filmService;
     }
+    // getFilms(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>): Promise<Response<any, Record<string, any>>> {
+    //     throw new Error("Method not implemented.");
+    // }
+    // getFilmById(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>): Promise<Response<any, Record<string, any>>> {
+    //     throw new Error("Method not implemented.");
+    // }
 
     public async getFilmsById(req: Request, res: Response): Promise<Response> {
         const films = await this.filmService.getFilms();

@@ -1,7 +1,7 @@
 import { Request,Response } from 'express';
 
-import { CreateFilmDTO } from '../../dtos/CreateFilmDTO';
-import { UpdateFilmDTO } from '../../dtos/UpdateFilmDTO';
+// import { CreateFilmDTO } from '../../dtos/CreateFilmDTO';
+// import { UpdateFilmDTO } from '../../dtos/UpdateFilmDTO';
 
 export interface IFilmController{
     getFilms(req:Request,res:Response):Promise<Response>;
