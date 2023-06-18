@@ -14,15 +14,17 @@ export class FilmController implements IFilmController {
     constructor(filmService: IFilmService) {
         this.filmService = filmService;
     }
-    // getFilms(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>): Promise<Response<any, Record<string, any>>> {
-    //     throw new Error("Method not implemented.");
-    // }
-    // getFilmById(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>): Promise<Response<any, Record<string, any>>> {
-    //     throw new Error("Method not implemented.");
-    // }
-
+    getFilms(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>): Promise<Response<any, Record<string, any>>> {
+        throw new Error("Method not implemented.");
+    }
+    getFilmById(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>): Promise<Response<any, Record<string, any>>> {
+        throw new Error("Method not implemented.");
+    }
+ 
     public async getFilmsById(req: Request, res: Response): Promise<Response> {
-        const films = await this.filmService.getFilms();
+    const { id } = req.params;
+
+        const films = await this.filmService.getFilmbyId(Number(id));
         return res.json(films);
        
     }
@@ -33,15 +35,15 @@ export class FilmController implements IFilmController {
     }
 
     public async updateFilm(req: Request, res: Response): Promise<Response> {
-        const { film_id } = req.params;
+        const { id } = req.params;
 
-        const film = await this.filmService.updateFilm(Number(film_id), req.body as UpdateFilmDTO);
+        const film = await this.filmService.updateFilm(Number(id), req.body as UpdateFilmDTO);
         return res.json(film);
     }
 
     public async deleteFilm(req: Request, res: Response): Promise<Response> {
-        const { film_id } = req.params;
-        await this.filmService.deleteFilm(Number(film_id));
+        const { id } = req.params;
+        await this.filmService.deleteFilm(Number(id));
         return res.status(204).send();
     }
 
