@@ -14,6 +14,8 @@ export class FilmController implements IFilmController {
     constructor(filmService: IFilmService) {
         this.filmService = filmService;
     }
+
+    // Criado para acabar com o erro do FilmController não sei se está correto.(VERIFICAR COM BUENO)
     getFilms(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>): Promise<Response<any, Record<string, any>>> {
         throw new Error("Method not implemented.");
     }
